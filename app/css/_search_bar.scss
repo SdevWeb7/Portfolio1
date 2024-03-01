@@ -1,0 +1,20 @@
+.search-bar {
+  position: fixed;
+  top: 2rem;
+  left: 8rem;
+  right: 1rem;
+  height: 40px;
+  display: flex;
+  box-shadow: 0 0 5px -1px whitesmoke;
+
+  img {
+    cursor: pointer;
+    background-color: var(--color2);
+  }
+
+  input {
+    width: 100%;
+    border: none;
+    padding: 1rem 2rem;
+  }
+}

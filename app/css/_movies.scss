@@ -1,0 +1,11 @@
+.movies-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.movie {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 0 4px 0px white;
+  cursor: pointer;
+}

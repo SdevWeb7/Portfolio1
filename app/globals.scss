@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "css/component";
+@import "css/header";
+@import "css/search_bar";
+@import "css/movies";
+
+:root {
+  --color1: #FC4747;
+  --color2: #10141E;
+  --color3: #5A698F;
+  --color4: #161D2F;
+  --color5: #FFFFFF;
+  --color6: #000000;
+}
+
+html, body {
+  margin: 4rem 0 0 4.5rem;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, sans-serif;
+  background-color: var(--color2);
+  color: var(--color5);
+}

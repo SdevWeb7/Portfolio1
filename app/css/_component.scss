@@ -1,0 +1,24 @@
+.btn {
+  cursor: pointer;
+  background-color: var(--color1);
+  color: var(--color5);
+}
+.btn-white {
+  background-color: var(--color5);
+  color: var(--color6);
+}
+
+input {
+  color: var(--color5);
+  background-color: var(--color2);
+  border: none;
+  border-bottom: 2px solid var(--color3);
+  opacity: .7;
+  outline: none;
+  padding: .5rem 1.5rem;
+
+  &:focus {
+    opacity: 1;
+    border-color: var(--color5);
+  }
+}
