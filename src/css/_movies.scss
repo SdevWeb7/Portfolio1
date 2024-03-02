@@ -1,0 +1,26 @@
+.videos {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+.video {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 0 4px 0px white;
+  cursor: pointer;
+  width: 25rem;
+  height: 14rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  p {
+    font-size: 2rem;
+    word-break: break-word;
+  }
+}

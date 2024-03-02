@@ -28,6 +28,7 @@ model Category {
 
 model Video {
   id          String   @id @default(cuid())
+  url         String
   name        String
   description String
   category    Category @relation(fields: [categoryID], references: [id])

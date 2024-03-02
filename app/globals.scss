@@ -2,10 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "css/component";
-@import "css/header";
-@import "css/search_bar";
-@import "css/movies";
+@import "../src/css/component";
+@import "../src/css/header";
+@import "../src/css/search_bar";
+@import "../src/css/movies";
+@import "../src/css/form";
 
 :root {
   --color1: #FC4747;
@@ -17,10 +18,13 @@
 }
 
 html, body {
-  margin: 4rem 0 0 4.5rem;
+  margin: 3rem 0 0 4.5rem;
   padding: 0;
   box-sizing: border-box;
   font-family: Inter, sans-serif;
   background-color: var(--color2);
   color: var(--color5);
+}
+h1 {
+  font-size: 3rem;
 }

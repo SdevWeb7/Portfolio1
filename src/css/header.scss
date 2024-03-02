@@ -1,0 +1,61 @@
+.header {
+    width: 3.8rem;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    bottom: 1rem;
+    border-radius: .5rem;
+    background-color: var(--color4);
+    transition: all .3s ease-in-out;
+    z-index: 1000;
+    padding: 1rem;
+
+    &[data-isopen="true"] {
+        width: 8.8rem;
+
+        .arrow-menu {
+            transform: rotate(180deg);
+        }
+    }
+
+    * {cursor: pointer;}
+
+    img {
+        width: 1.3rem;
+        height: 1.3rem;
+    }
+    .links {
+        display: flex;
+        align-items: center;
+        opacity: .8;
+        margin-top: 1.5rem;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+    p {
+        font-size: .8rem;
+        opacity: 0;
+        animation: .3s apparition .3s linear forwards;
+        margin-left: 1rem;
+    }
+
+    .profil {
+        position: absolute;
+        bottom: 1rem;
+
+        img {
+            border-radius: 50%;
+        }
+    }
+}
+
+@keyframes apparition {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

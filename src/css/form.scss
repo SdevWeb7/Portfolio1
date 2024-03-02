@@ -1,0 +1,26 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  label, button {
+    margin-top: 2rem;
+  }
+  input {
+    text-align: center;
+    min-width: 15rem;
+    width: 50%;
+  }
+  .errors {
+    color: var(--color1);
+    font-size: .9rem;
+  }
+
+  select {
+    width: 8rem;
+    padding: .5rem .5rem;
+    color: black;
+    border-radius: .2rem;
+  }
+
+}

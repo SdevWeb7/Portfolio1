@@ -1,22 +1,33 @@
-"use client"
+import prisma from '../src/prisma'
+import Link from "next/link";
 
-import { QueryClient, QueryClientProvider } from "react-query";
-import { QueryComponent } from "../src/component/QueryComponent";
+export default async function Home() {
 
-export default function Home() {
-
-  const queryClient = new QueryClient()
+   const videos = await prisma.video.findMany()
 
 
-  return (
-     <QueryClientProvider client={queryClient}>
-      <main>
+  return <main>
+     <h1>Nouveautés</h1>
 
-         <QueryComponent />
 
+     <section className="videos">
+
+     {videos && videos.map(v => {
+        const videoId = v.url.split('=')[1]
+        const thumbnailURL = `https://img.youtube.com/vi/${videoId}/0.jpg`
+
+        return <Link
+                  href={v.url}
+                  target={'_blank'}
+                  key={v.id}
+                  className={'video'}
+                  style={{backgroundImage: `url(${thumbnailURL})`}}>
+           <p>{v.name}</p>
+        </Link>
+     })}
+
+     </section>
       </main>
-     </QueryClientProvider>
-  );
 }
 
 /*

@@ -2,10 +2,9 @@
 
 import {signIn, signOut} from "next-auth/react";
 import {useState} from "react";
-import {IconLogin} from "../svg/IconLogin";
-import {IconLogout} from "../svg/IconLogout";
+import {IconLogin} from "../../src/svg/IconLogin";
+import {IconLogout} from "../../src/svg/IconLogout";
 import toast from "react-hot-toast";
-import {Message} from "postcss";
 
 export function LoginButtonGithub () {
     return (
@@ -31,29 +30,37 @@ export function LoginButtonEmail () {
             }}>Login with Email</button></>
 }
 
-export function LogoutButton () {
+export function LogoutButton ({children, className}) {
     return (
-        <button onClick={async(e) => {
-            e.stopPropagation()
-            return await signOut()
-        }}>
+        <button
+            className={className}
+            onClick={async(e) => {
+                e.stopPropagation()
+                return await signOut()
+            }}>
+
             <IconLogout/>
+
+            {children}
         </button>
     )
 }
 
-export function LoginButton () {
+export function LoginButton ({children, className}) {
     return (
-        <button onClick={async(e) => {
-            e.stopPropagation()
-            const signed = await signIn()
-            if (!signed?.ok) {
-                return toast.error('Problème de connexion')
-            }
-            toast.success('Vous êtes connecté')
-            return signed
-        }}>
+        <button
+            className={className}
+            onClick={async(e) => {
+                e.stopPropagation()
+                const signed = await signIn()
+                if (!signed?.ok) {
+                    return toast.error('Problème de connexion')
+                }
+                toast.success('Vous êtes connecté')
+                return signed
+            }}>
             <IconLogin />
+            {children}
         </button>
     )
 }

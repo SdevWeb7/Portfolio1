@@ -2,6 +2,18 @@
   cursor: pointer;
   background-color: var(--color1);
   color: var(--color5);
+  font-size: .8rem;
+  padding: .3rem 2rem;
+  border-radius: .3rem;
+  opacity: .8;
+
+  &:not([disabled]):hover {
+    opacity: 1;
+  }
+  &[disabled] {
+    opacity: .6;
+    cursor: unset;
+  }
 }
 .btn-white {
   background-color: var(--color5);
