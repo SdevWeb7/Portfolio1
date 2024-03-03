@@ -36,6 +36,7 @@ model Video {
   fromUser    User     @relation(fields: [fromID], references: [id])
   fromID      String
   likes       Like[]
+  createdAt   DateTime @default(now())
 }
 
 model Like {

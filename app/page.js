@@ -1,9 +1,21 @@
 import prisma from '../src/prisma'
 import Link from "next/link";
+import {mois} from '../src/utils'
+import { LikeModule } from "../src/component/LikeModule";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../src/auth";
+
 
 export default async function Home() {
 
-   const videos = await prisma.video.findMany()
+   const session = await getServerSession(authOptions)
+   const videos = await prisma.video.findMany({
+      include: {
+         category: {select: {name: true}},
+         likes: {select: {fromUser: {select: {email: true}}}},
+         fromUser: {select: {email: true}}
+      }
+   })
 
 
   return <main>
@@ -16,14 +28,23 @@ export default async function Home() {
         const videoId = v.url.split('=')[1]
         const thumbnailURL = `https://img.youtube.com/vi/${videoId}/0.jpg`
 
-        return <Link
-                  href={v.url}
-                  target={'_blank'}
-                  key={v.id}
-                  className={'video'}
-                  style={{backgroundImage: `url(${thumbnailURL})`}}>
-           <p>{v.name}</p>
+        return <article key={v.id} className={'video'}>
+           <Link
+               href={v.url}
+               target={'_blank'}>
+
+           <section
+              className="thumbnail"
+              style={{backgroundImage: `url(${thumbnailURL})`}}>
+           </section>
+
+           <p>{v.category.name} - {v.createdAt.getDate()} {mois[v.createdAt.getMonth()-1]} {v.createdAt.getFullYear()}</p>
+
+           <h2>{v.name}</h2>
         </Link>
+
+           <LikeModule video={v} session={session} />
+        </article>
      })}
 
      </section>

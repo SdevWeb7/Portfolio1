@@ -31,7 +31,7 @@ export function Form () {
             throw new Error('Problème serveur')
          } else {
             toast.success('La vidéo a bien été ajoutée')
-            router.push('/')
+            window.location.href = '/'
          }
       })
    }
