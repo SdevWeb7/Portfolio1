@@ -21,7 +21,6 @@ export default async function Home() {
   return <main>
      <h1>Nouveautés</h1>
 
-
      <section className="videos">
 
      {videos && videos.map(v => {
