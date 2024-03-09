@@ -2,20 +2,18 @@
 
 import { IconDelete } from "/src/svg/IconDelete";
 import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
+import { deleteVideoAction } from "../../src/serverActions/deleteVideo";
 
 export function DeleteVideo ({video}) {
 
-   const router = useRouter()
+   const deleteVideo = async() => {
+      const result = await deleteVideoAction({videoId: video.id})
 
-   const deleteVideo = () => {
-      fetch(`/api/videos/${video.id}`, {
-         method: 'DELETE'
-      }).then(r => r.json())
-         .then(d => {
-            toast.success('La vidéo a bien été supprimée')
-            router.refresh()
-         })
+      if (result.serverError) {
+         toast.error(result.serverError)
+      } else {
+         toast.success('La vidéo a été supprimée')
+      }
    }
 
    return <IconDelete

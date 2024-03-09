@@ -1,6 +1,6 @@
-import { FormWrapper } from "./FormWrapper";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../src/auth";
+import { Form } from "./Form";
 
 export default async function Partager () {
 
@@ -8,5 +8,6 @@ export default async function Partager () {
 
    return <>
       <h1>Partager une vidéo</h1>
-      <FormWrapper session={session} /></>
+
+      <Form session={session} /></>
 }

@@ -24,8 +24,6 @@ export default async function Home() {
   return <main>
      <h1>Nouveautés</h1>
 
-     <h1 className={'text-red-600 fontsize-5 margin-4 paddin-1'}>Malvina</h1>
-
      <section className="videos">
 
      {videos && videos.map(v => {
@@ -47,7 +45,10 @@ export default async function Home() {
            <h2>{v.name}</h2>
         </Link>
 
-           <LikeModule video={v} session={session} />
+           <LikeModule
+              video={v}
+              session={session} />
+
         </article>
      })}
 

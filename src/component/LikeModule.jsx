@@ -3,38 +3,23 @@
 import { IconLike } from "../svg/IconLike";
 import toast from "react-hot-toast";
 import { IconUnLike } from "../svg/IconUnLike";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { likeAction } from "../serverActions/likeAction";
 
 export function LikeModule ({video, session}) {
-   const [liked, setLiked] = useState(false)
-   const router = useRouter()
+   const [liked, setLiked] = useState(
+      video.likes.find(l => l.fromUser.email === session?.user?.email ? true : false))
 
-   useEffect(() => {
-      if (session) {
-         if (video.likes.find(l => l.fromUser.email === session.user?.email)) {
-            setLiked(true)
-         }
+
+   const handleLike = async(videoID) => {
+      const result = await likeAction({videoId: videoID})
+
+      if (result.serverError) {
+         toast.error('Il y a eu une erreur, assurez vous d\'être connecté avant d\' ajouter une vidéo aux favoris')
+      } else {
+         toast.success(result.data)
+         setLiked(v => !v)
       }
-   }, [])
-
-
-   const handleLike = (videoID, method) => {
-      if (!session) {
-         toast.error('Veuillez vous connecter avant d\'ajouter des vidéos en favoris')
-         return null
-      }
-      fetch(`/api/like/${videoID}`, {method: method}).then(r => {
-         if (!r.ok) {
-            toast.error('Problème serveur')
-            throw new Error('Problème serveur')
-         }
-         return r.json()
-      }).then(data => {
-         let message = method === "POST" ? "ajoutée" : "supprimée"
-         toast.success('La vidéo a été ' + message + ' aux favoris')
-         window.location.href = window.location.pathname
-      })
    }
 
    return (

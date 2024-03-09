@@ -1,0 +1,12 @@
+
+
+
+Reste à faire :
+    - Refactoring (dossier serverActions)
+    - Login/Logout en francais+style
+    - Login by Google/Facebook
+    - CSS final
+
+
+Bugs :
+    - Delete vidéo problème de foreign key

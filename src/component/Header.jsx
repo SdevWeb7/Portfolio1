@@ -19,7 +19,7 @@ export function Header ({session}) {
         return () => {
             document.removeEventListener('click', handleMenu)
         }
-    })
+    }, [])
 
     const handleMenu = (e) => {
         if (ref && !ref.current.contains(e.target)) {

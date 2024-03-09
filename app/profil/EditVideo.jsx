@@ -5,30 +5,36 @@ import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { editVideoSchemas } from "../../src/yupSchemas";
 import toast from "react-hot-toast";
-import { useState } from "react";
+import { editVideoAction } from "../../src/serverActions/editVideoAction";
 
 export function EditVideo ({video}) {
-   const {handleSubmit, control, formState: {errors, isValid}} = useForm({
-      mode: 'onBlur',
-      resolver: yupResolver(editVideoSchemas),
-      defaultValues: {
-         name: video.name,
-         url: video.url
-      }
+   const {handleSubmit, control,
+      formState: {errors}} = useForm({
+         mode: 'onBlur',
+         resolver: yupResolver(editVideoSchemas),
+         defaultValues: {
+            name: video.name,
+            url: video.url
+         }
    })
+   const videoId = video.url.split('=')[1]
+   const thumbnailURL = `https://img.youtube.com/vi/${videoId}/0.jpg`
 
+   const editVideo = async(data) => {
+      const result = await editVideoAction(
+         {...data, id: video.id})
 
-   const editVideo = (data) => {
-      fetch(`/api/videos/${video.id}`, {
-         method: 'PATCH',
-         body: JSON.stringify(data)
-      }).then(r => r.json())
-         .then(d => {
-            toast.success('La vidéo a bien été modifiée')
-         }).catch(e => toast.error('Il y a eu une erreur'))
+      if (result.serverError) {
+         toast.error(result.serverError)
+      } else {
+         toast.success('La vidéo a été modifiée')
+      }
    }
 
    return <form>
+      <div
+         style={{backgroundImage: `url(${thumbnailURL})`}}
+         className="container-img"></div>
 
       <Controller
          name="name"

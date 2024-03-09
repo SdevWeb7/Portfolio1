@@ -15,6 +15,7 @@
     "@prisma/client": "^5.10.2",
     "next": "14.1.0",
     "next-auth": "^4.24.6",
+    "next-safe-action": "^6.2.0",
     "nodemailer": "^6.9.11",
     "react": "^18",
     "react-dom": "^18",

@@ -9,8 +9,9 @@ import { LikeModule } from "../../src/component/LikeModule";
 export default async function Favoris () {
 
    const session = await getServerSession(authOptions)
-   if (!session) {
+   if (!session?.user?.email) {
       redirect('/')
+      return
    }
 
    const videos = await prisma.video.findMany({
@@ -22,18 +23,16 @@ export default async function Favoris () {
          }
       },
       include: {
-         category: true,
+         category: {select: {name: true}},
          likes: {
-            select: {
-               fromUser: true
-            }
-         },
-      }
+            select: {fromUser: {select: {email: true}}}
+         }
+      },
+      orderBy: {createdAt: 'desc'}
    })
 
 
    return <><h1>Mes favoris</h1>
-
       <section className="videos">
 
       {videos && videos.map(video => {
@@ -55,7 +54,10 @@ export default async function Favoris () {
                <h2>{video.name}</h2>
             </Link>
 
-            <LikeModule session={session} video={video} />
+            <LikeModule
+               session={session}
+               video={video} />
+
          </article>
       })}
 

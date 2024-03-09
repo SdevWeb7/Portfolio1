@@ -5,6 +5,7 @@ import {useEffect, useRef, useState} from "react";
 import toast from "react-hot-toast";
 import Link from "next/link";
 import {IconClose} from "../svg/IconClose";
+import {searchVideo} from "../serverActions/searchAction";
 
 
 export function SearchBar () {
@@ -22,10 +23,16 @@ export function SearchBar () {
 
     useEffect(() => {
         if (search.length > 0) {
-            fetch(`/api/search/${search}`)
-                .then(r => r.json())
-                .then(d => setVideos(d))
-                .catch(e => toast.error(`Il y a eu un problème (${e})`))
+            const searchAction = async () => {
+                const result = await searchVideo({searchKey: search})
+
+                if (result.serverError) {
+                    toast.error(result.serverError)
+                } else {
+                    setVideos(result.data)
+                }
+            }
+            searchAction()
         }
     }, [search])
 

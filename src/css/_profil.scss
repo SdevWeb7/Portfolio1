@@ -13,6 +13,14 @@
     align-items: center;
     gap: 2rem;
 
+    .container-img {
+      width: 10rem;
+      height: 6rem;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 10rem 8rem;
+    }
+
     .name {
       position: relative;
       max-width: 12rem;
