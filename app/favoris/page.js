@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { mois } from "../../src/utils";
-import { LikeModule } from "../../src/component/LikeModule";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../src/auth";
 import { redirect } from "next/navigation";
 import prisma from "../../src/prisma";
+import { LikeModule } from "../../src/component/LikeModule";
 
 export default async function Favoris () {
 
@@ -22,7 +22,12 @@ export default async function Favoris () {
          }
       },
       include: {
-         category: true
+         category: true,
+         likes: {
+            select: {
+               fromUser: true
+            }
+         },
       }
    })
 
@@ -49,6 +54,8 @@ export default async function Favoris () {
 
                <h2>{video.name}</h2>
             </Link>
+
+            <LikeModule session={session} video={video} />
          </article>
       })}
 

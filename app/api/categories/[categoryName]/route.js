@@ -10,7 +10,12 @@ export async function GET (request, context) {
          }
       },
       include: {
-         category: true
+         category: true,
+         likes: {
+            select: {
+               fromUser: true
+            }
+         }
       }
    })
 

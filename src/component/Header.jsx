@@ -5,10 +5,13 @@ import {LoginButton, LogoutButton} from "../../app/auth/AuthButtons";
 import {useEffect, useRef, useState} from "react";
 import {ArrowMenu} from "../svg/ArrowMenu"
 import Link from 'next/link'
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 export function Header ({session}) {
     const [isOpenMenu, setIsOpenMenu] = useState(false)
-    const ref = useRef()
+    const router = useRouter()
+    const ref = useRef(null)
 
     useEffect(() => {
         document.addEventListener('click', handleMenu)
@@ -23,11 +26,23 @@ export function Header ({session}) {
             setIsOpenMenu(false)
         }
     }
+    const navigateFavoris = (e) => {
+        e.preventDefault()
+        if (session) router.push('/favoris')
+        else toast.error('Veuillez vous connecter pour accéder a cette page')
+    }
+    const navigatePartager = (e) => {
+        e.preventDefault()
+        if (session) router.push('/partager')
+        else toast.error('Veuillez vous connecter pour accéder a cette page')
+    }
+
 
     return <header
             ref={ref}
             className={'header'}
             data-isopen={isOpenMenu}>
+
 
         <Link
             href={'#'}
@@ -43,7 +58,7 @@ export function Header ({session}) {
                 alt="logo"
                 width={30}
                 height={30} />
-            {isOpenMenu ? <p>Accueil</p> : ''}
+            {isOpenMenu && <p>Nouveautés</p>}
         </Link>
 
 
@@ -53,26 +68,26 @@ export function Header ({session}) {
                 alt="categories"
                 width={20}
                 height={20} />
-            {isOpenMenu ? <p>Catégories</p> : ''}
+            {isOpenMenu && <p>Catégories</p>}
         </Link>
 
 
-        <Link href={'/favoris'} className={'links'}>
+        <Link href={'/favoris'} className={'links'} onClick={navigateFavoris}>
             <Image
                 src="/assets/icon-like.svg"
                 alt="favoris"
                 width={20}
                 height={20} />
-            {isOpenMenu ? <p>Favoris</p> : ''}
+            {isOpenMenu && <p>Favoris</p>}
         </Link>
 
-        <Link href={'/partager'} className={'links'}>
+        <Link href={'/partager'} className={'links'} onClick={navigatePartager}>
             <Image
                 src="/assets/icon-add.svg"
                 alt="partager"
                 width={20}
                 height={20} />
-            {isOpenMenu ? <p>Partager</p> : ''}
+            {isOpenMenu && <p>Partager</p>}
         </Link>
 
 

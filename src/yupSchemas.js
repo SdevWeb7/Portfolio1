@@ -9,3 +9,8 @@ export const newVideoSchemas = yup.object().shape({
    description: yup.string().required(descPhrase).min(5, descPhrase).max(50, descPhrase).typeError(descPhrase),
    lien: yup.string().required(lienPhrase).url().typeError(lienPhrase)
 })
+
+export const editVideoSchemas = yup.object().shape({
+   name: yup.string().required(namePhrase).min(4, namePhrase).max(30, namePhrase).typeError(namePhrase),
+   url: yup.string().required(lienPhrase).url().typeError(lienPhrase)
+})

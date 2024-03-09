@@ -58,6 +58,7 @@ export function Form () {
 
       <label htmlFor="categorie">Catégorie</label>
       <select
+         value={'Divers'}
          name="categorie"
          id="categorie"
          {...register('categorie')}>

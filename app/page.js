@@ -14,12 +14,17 @@ export default async function Home() {
          category: {select: {name: true}},
          likes: {select: {fromUser: {select: {email: true}}}},
          fromUser: {select: {email: true}}
+      },
+      orderBy: {
+         createdAt: 'desc'
       }
    })
 
 
   return <main>
      <h1>Nouveautés</h1>
+
+     <h1 className={'text-red-600 fontsize-5 margin-4 paddin-1'}>Malvina</h1>
 
      <section className="videos">
 

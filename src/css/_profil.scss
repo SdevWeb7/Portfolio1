@@ -1,0 +1,29 @@
+.profil {
+
+  .videos-profil {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .video-profil form {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    .name {
+      position: relative;
+      max-width: 12rem;
+    }
+    .url {
+      width: 30rem;
+    }
+  }
+
+  .delete {
+    cursor: pointer;
+
+  }
+}
