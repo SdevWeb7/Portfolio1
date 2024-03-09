@@ -23,8 +23,6 @@ export default async function Home() {
 
   return <main>
      <h1>Nouveautés</h1>
-     <h2>Test</h2>
-     <h2>Test</h2>
 
      <section className="videos">
 
