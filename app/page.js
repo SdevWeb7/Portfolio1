@@ -1,9 +1,9 @@
-import prisma from '../src/prisma'
+import prisma from '/lib/prisma'
 import Link from "next/link";
-import {mois} from '../src/utils'
-import { LikeModule } from "../src/component/LikeModule";
+import {mois} from '/lib/utils'
+import { LikeModule } from "/assets/component/LikeModule";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../src/auth";
+import { authOptions } from "/lib/auth";
 
 
 export default async function Home() {

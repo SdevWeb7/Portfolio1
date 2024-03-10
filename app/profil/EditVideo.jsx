@@ -3,9 +3,9 @@
 import { DeleteVideo } from "./DeleteVideo";
 import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { editVideoSchemas } from "../../src/yupSchemas";
+import { editVideoSchemas } from "/lib/yupSchemas";
 import toast from "react-hot-toast";
-import { editVideoAction } from "../../src/serverActions/editVideoAction";
+import { editVideoAction } from "/actions/editVideoAction";
 
 export function EditVideo ({video}) {
    const {handleSubmit, control,

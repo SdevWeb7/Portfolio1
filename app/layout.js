@@ -1,8 +1,8 @@
 import "./globals.scss";
-import { Header } from "../src/component/Header";
-import { SearchBar } from "../src/component/SearchBar";
+import { Header } from "/assets/component/Header";
+import { SearchBar } from "/assets/component/SearchBar";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../src/auth";
+import { authOptions } from "/lib/auth";
 import { Toaster } from "react-hot-toast";
 
 export const metadata = {

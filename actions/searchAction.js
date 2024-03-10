@@ -1,8 +1,8 @@
 "use server"
 
 import { serverAction } from "./safeActions";
-import { searchSchemas } from "../yupSchemas";
-import prisma from "../prisma";
+import { searchSchemas } from "/lib/yupSchemas";
+import prisma from "/lib/prisma";
 
 export const searchVideo = serverAction(
    searchSchemas,

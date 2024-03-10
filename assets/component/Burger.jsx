@@ -1,8 +1,8 @@
 "use client"
 
-import {IconBurger} from "../../app/svg/IconBurger";
+import {IconBurger} from "/assets/svg/IconBurger";
 import {useState} from "react";
-import {IconClose} from "../../app/svg/IconClose";
+import {IconClose} from "/assets/svg/IconClose";
 
 export function Burger () {
     const [isOpen, setIsOpen] = useState(false)

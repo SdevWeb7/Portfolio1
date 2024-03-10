@@ -1,7 +1,7 @@
 "use server"
 
 import { serverAction } from "./safeActions";
-import prisma from "../prisma";
+import prisma from "/lib/prisma";
 
 export const findCategories = serverAction(
    {},

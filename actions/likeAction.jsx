@@ -1,9 +1,8 @@
 "use server"
 
-
 import { authenticatedAction } from "./safeActions";
-import { likeSchemas } from "../yupSchemas";
-import prisma from "../prisma";
+import { likeSchemas } from "/lib/yupSchemas";
+import prisma from "/lib/prisma";
 import { revalidatePath } from "next/cache";
 
 export const likeAction = authenticatedAction(

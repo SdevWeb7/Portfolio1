@@ -2,12 +2,12 @@
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { newVideoSchemas } from "../../src/yupSchemas";
-import { addVideo } from "/src/serverActions/addVideoAction";
+import { newVideoSchemas } from "/lib/yupSchemas";
+import { addVideo } from "/actions/addVideoAction";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { findCategories } from "../../src/serverActions/findCategories";
+import { findCategories } from "/actions/findCategories";
 
 export function Form ({session}) {
    const router = useRouter()

@@ -2,8 +2,8 @@
 
 import {signIn, signOut} from "next-auth/react";
 import {useState} from "react";
-import {IconLogin} from "../../src/svg/IconLogin";
-import {IconLogout} from "../../src/svg/IconLogout";
+import {IconLogin} from "/assets/svg/IconLogin";
+import {IconLogout} from "/assets/svg/IconLogout";
 import toast from "react-hot-toast";
 
 export function LoginButtonGithub () {

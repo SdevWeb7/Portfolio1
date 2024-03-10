@@ -1,10 +1,10 @@
 "use client"
 
-import { IconLike } from "../svg/IconLike";
+import { IconLike } from "/assets/svg/IconLike";
 import toast from "react-hot-toast";
-import { IconUnLike } from "../svg/IconUnLike";
+import { IconUnLike } from "/assets/svg/IconUnLike";
 import { useState } from "react";
-import { likeAction } from "../serverActions/likeAction";
+import { likeAction } from "/actions/likeAction";
 
 export function LikeModule ({video, session}) {
    const [liked, setLiked] = useState(

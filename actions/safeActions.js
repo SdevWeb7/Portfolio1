@@ -1,6 +1,6 @@
 import { createSafeActionClient } from "next-safe-action";
 import { getServerSession } from "next-auth";
-import { authOptions } from "/src/auth";
+import { authOptions } from "/lib/auth";
 
 export class ActionError extends Error {}
 

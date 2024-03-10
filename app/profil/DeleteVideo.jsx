@@ -1,8 +1,8 @@
 "use client"
 
-import { IconDelete } from "/src/svg/IconDelete";
+import { IconDelete } from "/assets/svg/IconDelete";
 import toast from "react-hot-toast";
-import { deleteVideoAction } from "../../src/serverActions/deleteVideo";
+import { deleteVideoAction } from "/actions/deleteVideo";
 
 export function DeleteVideo ({video}) {
 

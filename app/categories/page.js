@@ -1,12 +1,13 @@
 "use client"
+
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { LikeModule } from "../../src/component/LikeModule";
-import { findVideosByCategory } from "../../src/serverActions/findVideosByCategory";
 import toast from "react-hot-toast";
-import { getSessionAction } from "../../src/serverActions/getSessionAction";
-import { findCategories } from "../../src/serverActions/findCategories";
-import { mois } from "../../src/utils";
+import { LikeModule } from "/assets/component/LikeModule";
+import { findVideosByCategory } from "/actions/findVideosByCategory";
+import { getSessionAction } from "/actions/getSessionAction";
+import { findCategories } from "/actions/findCategories";
+import { mois } from "/lib/utils";
 
 export default function Categories () {
    const [session, setSession] = useState()

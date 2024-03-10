@@ -2,13 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "../src/css/component";
-@import "../src/css/header";
-@import "../src/css/search_bar";
-@import "../src/css/movies";
-@import "../src/css/form";
-@import "../src/css/categories";
-@import "../src/css/profil";
+@import "/assets/css/component";
+@import "/assets/css/header";
+@import "/assets/css/search_bar";
+@import "/assets/css/movies";
+@import "/assets/css/form";
+@import "/assets/css/categories";
+@import "/assets/css/profil";
 
 :root {
   --color1: #FC4747;

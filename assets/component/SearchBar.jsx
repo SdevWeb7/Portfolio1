@@ -4,8 +4,8 @@ import Image from "next/image";
 import {useEffect, useRef, useState} from "react";
 import toast from "react-hot-toast";
 import Link from "next/link";
-import {IconClose} from "../svg/IconClose";
-import {searchVideo} from "../serverActions/searchAction";
+import {IconClose} from "/assets/svg/IconClose";
+import {searchVideo} from "/actions/searchAction";
 
 
 export function SearchBar () {

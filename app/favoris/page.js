@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { mois } from "../../src/utils";
+import { mois } from "/lib/utils";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../../src/auth";
+import { authOptions } from "/lib/auth";
 import { redirect } from "next/navigation";
-import prisma from "../../src/prisma";
-import { LikeModule } from "../../src/component/LikeModule";
+import prisma from "/lib/prisma";
+import { LikeModule } from "/assets/component/LikeModule";
 
 export default async function Favoris () {
 

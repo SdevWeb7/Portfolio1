@@ -1,9 +1,9 @@
 "use client"
 
 import Image from "next/image";
-import {LoginButton, LogoutButton} from "../../app/auth/AuthButtons";
+import {LoginButton, LogoutButton} from "/app/auth/AuthButtons";
 import {useEffect, useRef, useState} from "react";
-import {ArrowMenu} from "../svg/ArrowMenu"
+import {ArrowMenu} from "/assets/svg/ArrowMenu"
 import Link from 'next/link'
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";

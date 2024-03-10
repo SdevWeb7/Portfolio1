@@ -2,8 +2,8 @@
 
 
 import { serverAction } from "./safeActions";
-import { findVideosByCategorySchemas } from "../yupSchemas";
-import prisma from "../prisma";
+import { findVideosByCategorySchemas } from "/lib/yupSchemas";
+import prisma from "/lib/prisma";
 
 export const findVideosByCategory = serverAction(
    findVideosByCategorySchemas,

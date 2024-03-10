@@ -1,8 +1,8 @@
 "use server"
 
 import { authenticatedAction } from "./safeActions";
-import { editVideoSchemas } from "../yupSchemas";
-import prisma from "../prisma";
+import { editVideoSchemas } from "/lib/yupSchemas";
+import prisma from "/lib/prisma";
 import { revalidatePath } from "next/cache";
 
 export const editVideoAction = authenticatedAction(

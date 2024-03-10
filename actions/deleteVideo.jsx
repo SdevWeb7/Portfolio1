@@ -1,9 +1,9 @@
 "use server"
 
 import { authenticatedAction } from "./safeActions";
-import { deleteVideoSchemas } from "../yupSchemas";
+import { deleteVideoSchemas } from "/lib/yupSchemas";
 import { revalidatePath } from "next/cache";
-import prisma from "../prisma";
+import prisma from "/lib/prisma";
 
 export const deleteVideoAction = authenticatedAction(
    deleteVideoSchemas,
