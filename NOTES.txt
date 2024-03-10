@@ -6,7 +6,3 @@ Reste à faire :
     - Login/Logout en francais+style
     - Login by Google/Facebook
     - CSS final
-
-
-Bugs :
-    - Delete vidéo problème de foreign key
