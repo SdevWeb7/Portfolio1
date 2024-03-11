@@ -1,15 +1,18 @@
 "use client"
 
 import Image from "next/image";
-import {LoginButton, LogoutButton} from "/app/auth/AuthButtons";
 import {useEffect, useRef, useState} from "react";
 import {ArrowMenu} from "/assets/svg/ArrowMenu"
 import Link from 'next/link'
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import { IconLogin } from "../svg/IconLogin";
+import { IconLogout } from "../svg/IconLogout";
+import { ConfirmModal } from "./ConfirmModal";
 
 export function Header ({session}) {
     const [isOpenMenu, setIsOpenMenu] = useState(false)
+    const [confirmModal, setConfirmModal] = useState(false)
     const router = useRouter()
     const ref = useRef(null)
 
@@ -43,6 +46,8 @@ export function Header ({session}) {
             className={'header'}
             data-isopen={isOpenMenu}>
 
+
+        {confirmModal && <ConfirmModal setConfirmModal={setConfirmModal} />}
 
         <Link
             href={'#'}
@@ -101,14 +106,20 @@ export function Header ({session}) {
                 alt={'icon-profil'} />
                {isOpenMenu && <p>Profil</p>}
            </Link>
-           <LogoutButton className={'links'}>
+           <Link href={'#'} className={'links'}
+                 onClick={e => {
+                        e.preventDefault()
+                        setConfirmModal(true)
+                     }}>
+               <IconLogout />
                 {isOpenMenu && <p
                    style={{marginLeft: '.5rem'}}>Déconnexion</p>}
-           </LogoutButton></> :
+           </Link></> :
 
-            <LoginButton className={"links"}>
+            <Link href={'/auth/signin'} className={"links"}>
+                <IconLogin />
                 {isOpenMenu && <p>Connexion</p>}
-            </LoginButton>}
+            </Link>}
         </section>
 
     </header>

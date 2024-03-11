@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "/assets/css/spinner";
+@import "/assets/css/confirm_modal";
+@import "/assets/css/auth";
 @import "/assets/css/component";
 @import "/assets/css/header";
 @import "/assets/css/search_bar";

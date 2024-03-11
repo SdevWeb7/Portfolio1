@@ -4,6 +4,8 @@ import { SearchBar } from "/assets/component/SearchBar";
 import { getServerSession } from "next-auth";
 import { authOptions } from "/lib/auth";
 import { Toaster } from "react-hot-toast";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 export const metadata = {
   title: "Entertainment Web App",
@@ -22,7 +24,9 @@ export default async function RootLayout({ children }) {
         <Header session={session} />
         <SearchBar />
 
-        {children}
+        <Suspense fallback={<Loading />}>
+            {children}
+        </Suspense>
 
       </body>
     </html>

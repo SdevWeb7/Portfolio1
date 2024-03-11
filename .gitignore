@@ -13,6 +13,7 @@
 /.next/
 /out/
 /.env/
+/public/client_secret.json/
 # production
 /build
 
