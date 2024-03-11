@@ -2,6 +2,8 @@
 
 
 Reste à faire :
-    - Login/Logout en francais+style
-    - Login by Google/Facebook
+    - Page Not Found
+    - Page Error
+    - Page Loading
+    - Page Redirect après signin
     - CSS final
