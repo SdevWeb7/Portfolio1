@@ -24,7 +24,7 @@ export function LikeModule ({video, session}) {
 
    return (
       <>
-      {liked ? <p className={'like flex gap-4'}>
+      {liked ? <p className={'like'}>
                   Vous aimez cette vidéo
                   <IconUnLike
                      onClick={() => handleLike(video.id, 'DELETE')} /></p> :

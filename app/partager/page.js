@@ -6,8 +6,8 @@ export default async function Partager () {
 
    const session = await getServerSession(authOptions)
 
-   return <>
+   return <main>
       <h1>Partager une vidéo</h1>
 
-      <Form session={session} /></>
+      <Form session={session} /></main>
 }

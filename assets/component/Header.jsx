@@ -9,6 +9,10 @@ import toast from "react-hot-toast";
 import { IconLogin } from "../svg/IconLogin";
 import { IconLogout } from "../svg/IconLogout";
 import { ConfirmModal } from "./ConfirmModal";
+import { IconNews } from "../svg/IconNews";
+import { IconCategories } from "../svg/IconCategories";
+import { IconLike } from "../svg/IconLike";
+import { IconAdd } from "../svg/IconAdd";
 
 export function Header ({session}) {
     const [isOpenMenu, setIsOpenMenu] = useState(false)
@@ -58,40 +62,26 @@ export function Header ({session}) {
             <ArrowMenu className={'arrow-menu'} /></Link>
 
         <Link href={'/'} className={'links'}>
-            <Image
-                src="/assets/logo.svg"
-                alt="logo"
-                width={30}
-                height={30} />
+            <IconNews className={'icons'} />
             {isOpenMenu && <p>Nouveautés</p>}
         </Link>
 
 
         <Link href={'/categories'} className={'links'}>
-            <Image
-                src="/assets/icon-nav-home.svg"
-                alt="categories"
-                width={20}
-                height={20} />
+            <IconCategories className={'icons'} />
             {isOpenMenu && <p>Catégories</p>}
         </Link>
 
 
         <Link href={'/favoris'} className={'links'} onClick={navigateFavoris}>
-            <Image
-                src="/assets/icon-like.svg"
-                alt="favoris"
-                width={20}
-                height={20} />
+            <IconLike className={'icons'} />
+
             {isOpenMenu && <p>Favoris</p>}
         </Link>
 
         <Link href={'/partager'} className={'links'} onClick={navigatePartager}>
-            <Image
-                src="/assets/icon-add.svg"
-                alt="partager"
-                width={20}
-                height={20} />
+            <IconAdd className={'icons'} />
+
             {isOpenMenu && <p>Partager</p>}
         </Link>
 
@@ -99,11 +89,10 @@ export function Header ({session}) {
         <section className={'profil'}>
         {session ? <>
            <Link href="/profil" className={'links'}>
-              <Image
-                src={session.user?.image ?? '/assets/icon-smiley.svg'}
-                width={30}
-                height={30}
-                alt={'icon-profil'} />
+              <div
+                 className="img-profil"
+                 style={{backgroundImage: `url(${session?.user?.image ?? '/assets/icon-smiley.svg'})`}}></div>
+
                {isOpenMenu && <p>Profil</p>}
            </Link>
            <Link href={'#'} className={'links'}
@@ -111,13 +100,13 @@ export function Header ({session}) {
                         e.preventDefault()
                         setConfirmModal(true)
                      }}>
-               <IconLogout />
+               <IconLogout className={'icons'} />
                 {isOpenMenu && <p
                    style={{marginLeft: '.5rem'}}>Déconnexion</p>}
            </Link></> :
 
             <Link href={'/auth/signin'} className={"links"}>
-                <IconLogin />
+                <IconLogin className={"icons"} />
                 {isOpenMenu && <p>Connexion</p>}
             </Link>}
         </section>

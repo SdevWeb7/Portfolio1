@@ -32,7 +32,8 @@ export default async function Favoris () {
    })
 
 
-   return <><h1>Mes favoris</h1>
+   return <main>
+      <h1>Mes favoris</h1>
       <section className="videos">
 
       {videos && videos.map(video => {
@@ -40,26 +41,25 @@ export default async function Favoris () {
          const thumbnailURL = `https://img.youtube.com/vi/${videoId}/0.jpg`
 
          return <article key={video.id} className={'video'}>
-            <Link
-               href={video.url}
-               target={'_blank'}>
-
-               <section
-                  className="thumbnail"
-                  style={{backgroundImage: `url(${thumbnailURL})`}}>
-               </section>
-
-               <p>{video.category.name} - {video.createdAt.getDate()} {mois[video.createdAt.getMonth()-1]} {video.createdAt.getFullYear()}</p>
-
-               <h2>{video.name}</h2>
-            </Link>
 
             <LikeModule
                session={session}
                video={video} />
 
+            <Link
+               href={video.url}
+               target={'_blank'}
+               className="thumbnail"
+               style={{backgroundImage: `url(${thumbnailURL})`}}>
+            </Link>
+
+               <p>{video.category.name} - {video.createdAt.getDate()} {mois[video.createdAt.getMonth()-1]} {video.createdAt.getFullYear()}</p>
+
+               <h2>{video.name}</h2>
+
+
          </article>
       })}
 
-   </section></>
+   </section></main>
 }

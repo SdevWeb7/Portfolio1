@@ -3,9 +3,10 @@
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 
 export function ConfirmModal ({setConfirmModal}) {
-
+   const router = useRouter()
    const ref = useRef(null)
 
    useEffect(() => {
@@ -28,8 +29,11 @@ export function ConfirmModal ({setConfirmModal}) {
          <article ref={ref}>
             <h2>Êtes-vous sur de vouloir vous déconnecter ?</h2>
 
-            <Link href={'auth/signout'}>
-               Déconnexion</Link>
+            <button
+               className={"disconnect"}
+               onClick={() => router.push('/auth/signout')}>
+               Oui
+            </button>
 
             <button
                onClick={() => setConfirmModal(false)}>Annuler</button>

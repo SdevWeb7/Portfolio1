@@ -56,7 +56,8 @@ export function Form ({session}) {
             placeholder={'Nom de la vidéo'}
             id={'name'}
             {...register("name")} />
-         {errors.name && <span className={'errors'}>{errors.name.message}</span>}
+         {errors.name && <span className={'errors'}>
+                     {errors.name.message}</span>}
 
 
          <label htmlFor="description">Description de la vidéo</label>
@@ -65,7 +66,8 @@ export function Form ({session}) {
             placeholder={'Description de la vidéo'}
             id={'description'}
             {...register("description")} />
-         {errors.description && <span className={'errors'}>{errors.description.message}</span>}
+         {errors.description && <span className={'errors'}>
+                     {errors.description.message}</span>}
 
 
          <label htmlFor="categorie">Catégorie</label>

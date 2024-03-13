@@ -1,17 +1,18 @@
 "use client"
 
-import Image from "next/image";
 import {useEffect, useRef, useState} from "react";
 import toast from "react-hot-toast";
 import Link from "next/link";
 import {IconClose} from "/assets/svg/IconClose";
 import {searchVideo} from "/actions/searchAction";
+import { IconSearch } from "../svg/IconSearch";
 
 
 export function SearchBar () {
     const [search, setSearch] = useState('')
     const [videos, setVideos] = useState([])
     const ref = useRef(null)
+    const inputRef = useRef(null)
 
     useEffect(() => {
         document.addEventListener('click', handleResult)
@@ -49,21 +50,22 @@ export function SearchBar () {
     }
 
     return <section className={'search-bar'}>
-        <Image
-            src={'/assets/icon-search.svg'}
-            alt={'search-icon'}
-            width={40}
-            height={40} />
+        <IconSearch
+           onClick={() => inputRef.current.focus()} />
 
         <input
+           ref={inputRef}
             type="text"
-            placeholder={'Search for a movie'}
+            placeholder={'Chercher une vidéo'}
             value={search}
             onChange={e => setSearch(e.target.value)}/>
 
 
         {videos.length > 0 && <article ref={ref} className={'search-results'}>
-            <IconClose className={'close'} onClick={resetSearch} />
+            <IconClose
+               className={'close'}
+               onClick={resetSearch} />
+
             {videos.map(video =>
                 <Link
                     key={video.id}

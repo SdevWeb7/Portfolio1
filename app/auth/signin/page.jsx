@@ -17,8 +17,11 @@ export default function Page () {
       resolver: yupResolver(emailSchemas)
    })
 
-   const handleLoginByEmail = (data) => {
-      console.log(data)
+   const handleLoginByEmail = async(data) => {
+      return await signIn('email', {
+         email: data.email,
+         callbackUrl: '/'
+      })
    }
 
    return <main className="auth">
@@ -28,7 +31,7 @@ export default function Page () {
          <h2>Il y a eu un problème</h2>}
 
 
-      <form onSubmit={handleSubmit(handleLoginByEmail)}>
+      <form className={"form"} onSubmit={handleSubmit(handleLoginByEmail)}>
          <label htmlFor="email">Entrez votre addresse e-mail</label>
          <input
             {...register('email')}
@@ -36,7 +39,8 @@ export default function Page () {
             type="text"
             placeholder={'example@example.com'} />
 
-         {emailError.email && <p className={"errors"}>{emailError.email.message}</p>}
+         {emailError.email && <p className={"errors"}>
+               {emailError.email.message}</p>}
 
          <button
             className={"email"}
@@ -44,8 +48,11 @@ export default function Page () {
                <IconMail /> Connexion par E-mail</button>
       </form>
 
-
-      <h3>OU</h3>
+      <div className="or">
+         <div></div>
+         <h3>OU</h3>
+         <div></div>
+      </div>
 
       <button
          className={"google"}

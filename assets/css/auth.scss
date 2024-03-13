@@ -3,19 +3,17 @@
   flex-direction: column;
   align-items: center;
 
+  h2 {
+    background-color: var(--color4);
+    color: var(--color-white);
+    border-radius: .5rem;
+    padding: .5rem;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
 
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  label {
-    margin-top: 2rem;
-  }
-  input  {
-    max-width: 20rem;
-    margin-bottom: 1rem;
-  }
+  form {width: 100%;}
 
   button {
     display: flex;
@@ -23,37 +21,36 @@
     padding: 1rem 2rem;
     margin-bottom: 1rem;
     border-radius: .2rem;
-    border: 1px solid whitesmoke;
-    box-shadow: 2px 4px 10px 0 rgba(0, 0, 0, .5);
+    box-shadow: var(--box-shadow);
+    color: var(--color-white);
+    transition: all .3s ease-in-out;
+
+    &:hover {transform: scale(1.1)}
   }
 
-  h2 {
-    background-color: #FC4747;
-    border-radius: .5rem;
-    padding: .5rem;
-    text-align: center;
-    font-size: 1.2rem;
-    margin-top: 1rem;
+  .or {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+
+    h3 {font-size: 1.5rem;}
+
+    div {
+      height: 1px;
+      width: 6rem;
+      background-color: var(--color-black-in-light);
+    }
   }
-  h3 {
-    margin: 1rem 0 2rem 0;
-  }
+
+  .email {background-color: var(--color3);}
+
+  .google {background-color: #2962ff;}
+
   .github {
     background-color: black;
     color: whitesmoke;
-  }
-  .email {
-    background-color: green;
-  }
-  .facebook {
-    background-color: #1a0dab;
-  }
-  .google {
-    background-color: #2962ff;
-  }
-
-  .errors {
-    color: #FC4747;
-    margin-bottom: 1rem;
   }
 }

@@ -31,23 +31,21 @@ export default async function Home() {
         const thumbnailURL = `https://img.youtube.com/vi/${videoId}/0.jpg`
 
         return <article key={v.id} className={'video'}>
-           <Link
-               href={v.url}
-               target={'_blank'}>
-
-           <section
-              className="thumbnail"
-              style={{backgroundImage: `url(${thumbnailURL})`}}>
-           </section>
-
-           <p>{v.category.name} - {v.createdAt.getDate()} {mois[v.createdAt.getMonth()-1]} {v.createdAt.getFullYear()}</p>
-
-           <h2>{v.name}</h2>
-        </Link>
 
            <LikeModule
               video={v}
               session={session} />
+
+           <Link
+              href={v.url}
+              target={'_blank'}
+              className="thumbnail"
+              style={{backgroundImage: `url(${thumbnailURL})`}}>
+           </Link>
+
+           <p>{v.category.name} - {v.createdAt.getDate()} {mois[v.createdAt.getMonth()-1]} {v.createdAt.getFullYear()}</p>
+
+           <h2>{v.name}</h2>
 
         </article>
      })}

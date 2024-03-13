@@ -5,9 +5,8 @@ import { EditVideo } from "./EditVideo";
 
 export default async function Profil () {
    const session = await getServerSession(authOptions)
-   if (!session) {
-      redirect('/')
-   }
+   if (!session) {redirect('/')}
+
    const videos = await prisma.video.findMany({
       where: {
          fromUser: {email: session.user.email}

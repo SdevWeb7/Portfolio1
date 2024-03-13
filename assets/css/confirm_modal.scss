@@ -5,13 +5,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
+  z-index: 1005;
 
   article {
-    border: 1px solid whitesmoke;
-    background-color: var(--color4);
-    box-shadow: 2px 4px 10px 0 rgba(0, 0, 0, .5);
-    max-width: 20rem;
+    background-color: var(--color2);
+    box-shadow: var(--box-shadow);
+    max-width: 18rem;
     border-radius: .5rem;
     padding: 2rem;
     text-align: center;
@@ -22,18 +21,20 @@
     margin-bottom: 3rem;
   }
 
-  button, a {
-    background-color: whitesmoke;
-    color: black;
+  button {
+    background-color: var(--color1);
+    color: var(--color-black-in-light);
     padding: .3rem .7rem;
     border-radius: .5rem;
     margin-left: 2rem;
+    box-shadow: var(--box-shadow);
+    transition: all .2s ease-in-out;
+    &:hover {transform: scale(1.1)}
   }
 
-  a {
-    background-color: #FC4747;
-    color: whitesmoke;
+  .disconnect {
+    background-color: var(--color4);
+    color: var(--color-white);
     margin-left: 0;
-    padding: .5rem 1rem;
   }
 }

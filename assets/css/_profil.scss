@@ -3,35 +3,39 @@
   .videos-profil {
     margin-top: 2rem;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 2rem;
-    align-items: center;
   }
 
   .video-profil form {
+    width: 17rem;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
+    box-shadow: var(--box-shadow);
+    padding: 1rem;
 
     .container-img {
-      width: 10rem;
-      height: 6rem;
+      width: 100%;
+      height: 8rem;
+      background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      background-size: 10rem 8rem;
     }
 
-    .name {
-      position: relative;
-      max-width: 12rem;
-    }
-    .url {
-      width: 30rem;
+    .input {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      input {
+        width: 80%;
+      }
+      svg {cursor: pointer;}
     }
   }
 
-  .delete {
-    cursor: pointer;
-
-  }
+  .btn {background-color: var(--color4)}
 }

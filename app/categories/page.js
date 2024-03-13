@@ -54,21 +54,20 @@ export default function Categories () {
          const annee = v.createdAt.getFullYear();
 
          return <article key={v.id} className={'video'}>
+
+            <LikeModule session={session} video={v} />
+
             <Link
                href={v.url}
-               target={'_blank'}>
-
-               <section
-                  className="thumbnail"
-                  style={{backgroundImage: `url(${thumbnailURL})`}}>
-               </section>
+               target={'_blank'}
+               className="thumbnail"
+               style={{backgroundImage: `url(${thumbnailURL})`}}>
+            </Link>
 
                <p>{v.category.name} - {v.createdAt.getDate()} {mois[tempMois]} {v.createdAt.getFullYear()}</p>
 
                <h2>{v.name}</h2>
-            </Link>
 
-            <LikeModule session={session} video={v} />
          </article>
       })}
       </section>
