@@ -1,13 +1,15 @@
 "use client"
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useLocalStorage from "use-local-storage";
 
 export function useTheme () {
 
-   const [theme, setTheme] = useLocalStorage('theme', window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light')
+   const [isClient, setIsClient] = useState(false)
+   const [theme, setTheme] = useLocalStorage('theme', isClient ? window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light' : 'light')
 
    useEffect(() => {
+      setIsClient(true)
       document.body.setAttribute('data-theme', theme)
    }, [theme])
 

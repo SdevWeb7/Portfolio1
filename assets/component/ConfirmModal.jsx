@@ -1,7 +1,6 @@
 "use client"
 
 import { createPortal } from "react-dom";
-import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 
