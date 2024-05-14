@@ -37,7 +37,7 @@ export default function Categories () {
       <h1>Catégories</h1>
 
       <nav>
-         {categories.map(c => {
+         {categories?.map(c => {
             return <button
                key={c.name}
                onClick={() => setCategoryName(c.name)}>

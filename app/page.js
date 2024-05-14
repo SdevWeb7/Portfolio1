@@ -20,6 +20,12 @@ export default async function Home() {
       }
    })
 
+   const feedDB = await prisma.category.create({
+      data: {
+            name: 'Humour'
+         }
+   })
+
 
   return <main>
      <h1>Nouveautés</h1>
