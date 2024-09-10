@@ -35,7 +35,7 @@ export default function Categories () {
       <h1>Catégories</h1>
 
       <nav>
-         {categories ? categories.map(c => {
+         {categories.length > 0 ? categories.map(c => {
             return <button
                key={c.name}
                onClick={() => setCategoryName(c.name)}>
@@ -45,7 +45,7 @@ export default function Categories () {
       </nav>
 
       <section className={'videos'}>
-      {videos?.map(v => {
+      {videos.length > 0 ? videos.map(v => {
          const videoId = v.url.split('=')[1]
          const thumbnailURL = `https://img.youtube.com/vi/${videoId}/0.jpg`
          const jour = v.createdAt.getDate();
@@ -68,7 +68,7 @@ export default function Categories () {
                <h2>{v.name}</h2>
 
          </article>
-      })}
+      }) : <p>Aucun vidéo pour le moment...</p>}
       </section>
    </main>
 }

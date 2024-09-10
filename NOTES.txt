@@ -1,9 +1,0 @@
-
-
-
-Reste à faire :
-    - Page Not Found
-    - Page Error
-    - Page Loading
-    - Page Redirect après signin
-    - CSS final

@@ -20,14 +20,14 @@ export default async function Profil () {
 
       <section className="videos-profil">
 
-         {videos.map(video => {
+         {videos.length > 0 ? videos.map(video => {
             return <article
                      key={video.id}
                      className={'video-profil'}>
 
                <EditVideo video={video} />
             </article>
-         })}
+         }) : <p>Vous n'avez pas encore de vidéos, ajoutez en !</p>}
 
       </section>
 

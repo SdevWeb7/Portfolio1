@@ -35,7 +35,7 @@ export default async function Favoris () {
       <h1>Mes favoris</h1>
       <section className="videos">
 
-      {videos && videos.map(video => {
+      {videos.length > 0 ? videos.map(video => {
          const videoId = video.url.split('=')[1]
          const thumbnailURL = `https://img.youtube.com/vi/${videoId}/0.jpg`
 
@@ -58,7 +58,7 @@ export default async function Favoris () {
 
 
          </article>
-      })}
+      }) : <p>Vous n&qpos;avez pas encore de favoris</p>}
 
    </section></main>
 }
