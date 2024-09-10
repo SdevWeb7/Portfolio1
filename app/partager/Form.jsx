@@ -27,7 +27,7 @@ export function Form ({session}) {
          if (result.serverError) {
             toast.error('il y a eu une erreur dans le chargement des catégories')
          } else {
-            setCategories(result.data)
+            setCategories(result)
          }
       }
       find()
