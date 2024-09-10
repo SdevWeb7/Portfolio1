@@ -25,14 +25,9 @@ export function SearchBar () {
     useEffect(() => {
         if (search.length > 0) {
             const searchAction = async () => {
-                const result = await searchVideo({
-                    searchKey: search})
+                const result = await searchVideo(search)
+                setVideos(result)
 
-                if (result.serverError) {
-                    toast.error(result.serverError)
-                } else {
-                    setVideos(result.data)
-                }
             }
             searchAction()
         }
