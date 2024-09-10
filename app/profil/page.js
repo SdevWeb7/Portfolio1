@@ -27,7 +27,7 @@ export default async function Profil () {
 
                <EditVideo video={video} />
             </article>
-         }) : <p>Vous n'avez pas encore de vidéos, ajoutez en !</p>}
+         }) : <p>Vous n&apos;avez pas encore de vidéos, ajoutez en !</p>}
 
       </section>
 
