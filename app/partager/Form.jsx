@@ -30,7 +30,6 @@ export function Form ({session}) {
    }, [])
 
    const onSubmit = async(data) => {
-      console.log(data)
       const result = await addVideo(data)
 
       if (result.serverError) {

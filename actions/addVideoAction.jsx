@@ -11,14 +11,14 @@ export const addVideo = async(data) => {
 
          const category = await prisma.category.findFirst({
                where: {
-                     name: data.get('categorie')
+                     name: data.categorie
                }
          })
          await prisma.video.create({
                data: {
-                     name: data.get('name'),
-                     description: data.get('description'),
-                     url: data.get("url"),
+                     name: data.name,
+                     description: data.description,
+                     url: data.url,
                      fromUser: {
                            connect: {email: session.user.email}
                      },
