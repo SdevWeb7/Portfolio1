@@ -12,7 +12,7 @@ export function LikeModule ({video, session}) {
 
 
    const handleLike = async(videoID) => {
-      const result = await likeAction({videoId: videoID})
+      const result = await likeAction(videoID)
 
       if (result.serverError) {
          toast.error('Il y a eu une erreur, assurez vous d\'être connecté avant d\' ajouter une vidéo aux favoris')

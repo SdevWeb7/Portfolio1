@@ -18,15 +18,13 @@ export default function Categories () {
    useEffect(() => {
       const findVideos = async() => {
          const session = await getSessionAction()
-         const result = await findVideosByCategory({categoryName: categoryName})
+         const result = await findVideosByCategory(categoryName)
          const categories = await findCategories()
-         if (result.serverError) {
-            toast.error(result.serverError)
-         } else {
-            setVideos(result.data)
-         }
+
+         setVideos(result)
+
          setSession(session)
-         setCategories(categories.data)
+         setCategories(categories)
       }
       findVideos()
    }, [categoryName])
@@ -46,7 +44,7 @@ export default function Categories () {
       </nav>
 
       <section className={'videos'}>
-      {videos.map(v => {
+      {videos?.map(v => {
          const videoId = v.url.split('=')[1]
          const thumbnailURL = `https://img.youtube.com/vi/${videoId}/0.jpg`
          const jour = v.createdAt.getDate();

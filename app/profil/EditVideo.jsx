@@ -31,7 +31,7 @@ export function EditVideo ({video}) {
       const result = await editVideoAction(
          {...data, id: video.id})
 
-      if (result.serverError) {
+      if (result?.serverError) {
          toast.error(result.serverError)
       } else {
          toast.success('La vidéo a été modifiée')
@@ -43,7 +43,7 @@ export function EditVideo ({video}) {
    const deleteVideo = async() => {
       const result = await deleteVideoAction({videoId: video.id})
 
-      if (result.serverError) {
+      if (result?.serverError) {
          toast.error(result.serverError)
       } else {
          toast.success('La vidéo a été supprimée')

@@ -4,7 +4,7 @@
 
 import prisma from "/lib/prisma";
 
-export const findVideosByCategory = async function ({categoryName}) {
+export const findVideosByCategory = async function (categoryName) {
       const videos = await prisma.video.findMany({
          where: {
             category: {

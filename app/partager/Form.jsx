@@ -33,7 +33,7 @@ export function Form ({session}) {
    const onSubmit = async(data) => {
       const result = await addVideo(data)
 
-      if (result.serverError) {
+      if (result?.serverError) {
          toast.error(result.serverError)
       } else {
          toast.success('La vidéo a été ajoutée')

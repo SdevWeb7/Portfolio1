@@ -1,17 +1,20 @@
 "use server"
 
-import { authenticatedAction } from "./safeActions";
-import { likeSchemas } from "/lib/yupSchemas";
 import prisma from "/lib/prisma";
 import { revalidatePath } from "next/cache";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../lib/auth";
 
-export const likeAction = authenticatedAction(
-   likeSchemas,
-   async function ({videoId}, userEmail) {
+export const likeAction = async function (videoId) {
       let result;
+      const session = await getServerSession(authOptions);
+      if (!session) {
+         return {serverError: true}
+      }
+
       const like = await prisma.like.findFirst({
          where: {
-            fromUser: { email: userEmail },
+            fromUser: { email: session.user.email },
             toVideo: { id: videoId }
          }
       });
@@ -31,5 +34,4 @@ export const likeAction = authenticatedAction(
       }
       revalidatePath('/')
       return result
-   }
-)
+}
