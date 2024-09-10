@@ -26,7 +26,7 @@ export const likeAction = async function (videoId) {
       } else {
          await prisma.like.create({
             data: {
-               fromUser: {connect: {email: userEmail}},
+               fromUser: {connect: {email: session.user.email}},
                toVideo: {connect: {id: videoId}}
             }
          })
