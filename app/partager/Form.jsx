@@ -24,11 +24,7 @@ export function Form ({session}) {
    useEffect(() => {
       const find = async() => {
          let result = await findCategories()
-         if (result.serverError) {
-            toast.error('il y a eu une erreur dans le chargement des catégories')
-         } else {
-            setCategories(result)
-         }
+         setCategories(result)
       }
       find()
    }, [])

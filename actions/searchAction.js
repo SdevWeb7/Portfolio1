@@ -3,7 +3,7 @@
 
 import prisma from "/lib/prisma";
 
-export const searchVideo = async function ({searchKey}) {
+export const searchVideo = async function (searchKey) {
       const result = await prisma.video.findMany({
          where: {
             name: {

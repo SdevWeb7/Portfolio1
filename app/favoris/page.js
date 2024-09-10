@@ -11,7 +11,6 @@ export default async function Favoris () {
    const session = await getServerSession(authOptions)
    if (!session?.user?.email) {
       redirect('/')
-      return
    }
 
    const videos = await prisma.video.findMany({
