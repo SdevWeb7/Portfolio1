@@ -32,7 +32,7 @@ export default function Page () {
 
 
       <form className={"form"} onSubmit={handleSubmit(handleLoginByEmail)}>
-         <label htmlFor="email">Entrez votre addresse e-mail</label>
+         <label htmlFor="email">Entrez votre adresse e-mail</label>
          <input
             {...register('email')}
             id={"email"}
