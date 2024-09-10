@@ -13,7 +13,7 @@ export default function Categories () {
    const [session, setSession] = useState()
    const [videos, setVideos] = useState([])
    const [categories, setCategories] = useState([])
-   const [categoryName, setCategoryName] = useState("Humour")
+   const [categoryName, setCategoryName] = useState("Informatique")
 
    useEffect(() => {
       const findVideos = async() => {
@@ -35,12 +35,13 @@ export default function Categories () {
       <h1>Catégories</h1>
 
       <nav>
-         {categories?.map(c => {
+         {categories ? categories.map(c => {
             return <button
                key={c.name}
                onClick={() => setCategoryName(c.name)}>
                   {c.name}</button>
-         })}
+         }) : <p>Chargement...</p>}
+
       </nav>
 
       <section className={'videos'}>
