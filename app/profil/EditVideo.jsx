@@ -28,8 +28,7 @@ export function EditVideo ({video}) {
    const thumbnailURL = `https://img.youtube.com/vi/${videoId}/0.jpg`
 
    const editVideo = async(data) => {
-      const result = await editVideoAction(
-         {...data, id: video.id})
+      const result = await editVideoAction({...data, id: video.id})
 
       if (result?.serverError) {
          toast.error(result.serverError)
@@ -41,7 +40,7 @@ export function EditVideo ({video}) {
    }
 
    const deleteVideo = async() => {
-      const result = await deleteVideoAction({videoId: video.id})
+      const result = await deleteVideoAction(video.id)
 
       if (result?.serverError) {
          toast.error(result.serverError)
