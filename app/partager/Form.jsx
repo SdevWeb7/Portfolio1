@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { findCategories } from "/actions/findCategories";
+import { useSession } from "next-auth/react";
 
 export function Form ({session}) {
    const router = useRouter()
@@ -17,7 +18,7 @@ export function Form ({session}) {
          mode: 'onBlur',
          resolver: yupResolver(newVideoSchemas),
          defaultValues: {
-            categorie: 'Divers'
+            categorie: 'Informatique'
          }
    })
 
@@ -68,6 +69,7 @@ export function Form ({session}) {
 
          <label htmlFor="categorie">Catégorie</label>
          <select
+            defaultValue={'Informatique'}
             name="categorie"
             id="categorie"
             {...register('categorie')}>

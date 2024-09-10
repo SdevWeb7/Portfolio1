@@ -4,10 +4,13 @@
 import prisma from "/lib/prisma";
 import { revalidatePath } from "next/cache";
 import { getServerSession } from "next-auth";
+import { authOptions } from "../lib/auth";
 
 export const addVideo = async(data) => {
-         const session = getServerSession()
+         const session = await getServerSession(authOptions)
          if (!session) return {serverError: 'Vous devez être connecté pour ajouter une vidéo'}
+
+
 
          const category = await prisma.category.findFirst({
                where: {
