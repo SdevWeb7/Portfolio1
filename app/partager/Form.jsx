@@ -72,7 +72,6 @@ export function Form ({session}) {
 
          <label htmlFor="categorie">Catégorie</label>
          <select
-            defaultValue={'Divers'}
             name="categorie"
             id="categorie"
             {...register('categorie')}>

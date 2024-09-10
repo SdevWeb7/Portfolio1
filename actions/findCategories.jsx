@@ -1,14 +1,10 @@
 "use server"
 
-import { serverAction } from "./safeActions";
 import prisma from "/lib/prisma";
 
-export const findCategories = serverAction(
-   {},
-   async() => {
+export const findCategories = async() => {
       const categories = await prisma.category.findMany()
 
       return categories
 
    }
-)
