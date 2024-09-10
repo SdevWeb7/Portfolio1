@@ -14,10 +14,10 @@ export function LikeModule ({video, session}) {
    const handleLike = async(videoID) => {
       const result = await likeAction(videoID)
 
-      if (result.serverError) {
+      if (result?.serverError) {
          toast.error('Il y a eu une erreur, assurez vous d\'être connecté avant d\' ajouter une vidéo aux favoris')
       } else {
-         toast.success(result.data)
+         toast.success(result)
          setLiked(v => !v)
       }
    }
@@ -27,10 +27,10 @@ export function LikeModule ({video, session}) {
       {liked ? <p className={'like'}>
                   Vous aimez cette vidéo
                   <IconUnLike
-                     onClick={() => handleLike(video.id, 'DELETE')} /></p> :
+                     onClick={() => handleLike(video.id)} /></p> :
          <IconLike
          className={'like'}
-         onClick={() => handleLike(video.id, "POST")} />}
+         onClick={() => handleLike(video.id)} />}
       </>
    )
 }
