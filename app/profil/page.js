@@ -13,6 +13,7 @@ export default async function Profil () {
       }
    })
 
+
    return <main className={'profil'}>
       <h1>Gérer mes vidéos</h1>
 

@@ -1,13 +1,10 @@
 "use server"
 
-import { authenticatedAction } from "./safeActions";
-import { newVideoSchemas } from "/lib/yupSchemas";
+
 import prisma from "/lib/prisma";
 import { revalidatePath } from "next/cache";
 
-export const addVideo = authenticatedAction(
-   newVideoSchemas,
-   async(data, userEmail) => {
+export const addVideo = async(data, userEmail) => {
 
          const category = await prisma.category.findFirst({
                where: {
@@ -31,4 +28,3 @@ export const addVideo = authenticatedAction(
 
       revalidatePath('/')
       }
-)

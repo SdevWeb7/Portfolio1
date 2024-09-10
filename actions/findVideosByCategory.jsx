@@ -1,13 +1,10 @@
 "use server"
 
 
-import { serverAction } from "./safeActions";
-import { findVideosByCategorySchemas } from "/lib/yupSchemas";
+
 import prisma from "/lib/prisma";
 
-export const findVideosByCategory = serverAction(
-   findVideosByCategorySchemas,
-   async function ({categoryName}) {
+export const findVideosByCategory = async function ({categoryName}) {
       const videos = await prisma.video.findMany({
          where: {
             category: {
@@ -25,5 +22,4 @@ export const findVideosByCategory = serverAction(
       })
 
       return videos
-   }
-)
+}
