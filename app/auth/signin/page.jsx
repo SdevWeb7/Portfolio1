@@ -4,7 +4,6 @@ import { signIn } from "next-auth/react";
 import { useSearchParams } from "next/navigation";
 import { IconGithub } from "../../../assets/svg/IconGithub";
 import { IconMail } from "../../../assets/svg/IconMail";
-import { IconGoogle } from "../../../assets/svg/IconGoogle";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { emailSchemas } from "../../../lib/yupSchemas";
@@ -54,12 +53,12 @@ export default function Page () {
          <div></div>
       </div>
 
-      <button
-         className={"google"}
-         onClick={async() => {
-         await signIn('google', {callbackUrl: '/'})
-      }
-      }><IconGoogle /> Connexion avec Google</button>
+      {/*<button*/}
+      {/*   className={"google"}*/}
+      {/*   onClick={async() => {*/}
+      {/*   await signIn('google', {callbackUrl: '/'})*/}
+      {/*}*/}
+      {/*}><IconGoogle /> Connexion avec Google</button>*/}
 
       <button
          className={"github"}
